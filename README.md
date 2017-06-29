@@ -1,5 +1,6 @@
 # Unity UI Tips
-In general, the UI Text component's Best Fit setting should never be used.
+In general, the UI Text component's Best Fit setting should never be used. Since,
+“Best Fit” dynamically adjusts the size of a font to the largest integer point size which can be displayed within a Text component’s bounding box without overflow, clamped to a configurable minimum/maximum point size. However, because Unity renders a distinct glyph into the font atlas for each distinct size of character being displayed, use of Best Fit will rapidly overwhelm the atlas with many different glyph sizes.
 
 If Canvas.BuildBatch or Canvas::UpdateBatches seems to be using an excessive amount of CPU time, then the likely problem is an excessive number of Canvas Renderer components on a single Canvas. See the Splitting Canvases section of the Canvas chapter.
 
